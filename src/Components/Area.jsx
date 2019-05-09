@@ -1,4 +1,5 @@
 import React from "react";
+import Cell from "./Cell";
 import styled from "styled-components";
 
 const AreaWrapper = styled.div`
@@ -10,6 +11,12 @@ const AreaWrapper = styled.div`
   }
 `;
 
-const Area = ({ children }) => <AreaWrapper> {children}</AreaWrapper>;
+const Area = ({ cells, onClick }) => (
+  <AreaWrapper> 
+    {cells.map((cell, idx) => (
+      <Cell value={cell} onClick={() => onClick(idx)} key={Date.now() + idx} />
+    ))}
+  </AreaWrapper>
+);
 
 export default Area;

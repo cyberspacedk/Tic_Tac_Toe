@@ -1,9 +1,11 @@
-const initialState = Array(9).fill("");
+const initialState = [{
+  squares : Array(9).fill("")
+}];
 
 const cellsReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case "MAKE_MOVE":
-      return { ...payload };
+      return payload ;
     default:
       return state;
   }

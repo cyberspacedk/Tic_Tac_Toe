@@ -1,11 +1,11 @@
 import React from "react"; 
 import Controls from "./Controls"
-import Area from "./Area";
-import Cell from "./Cell";
+import Area from "./Area"; 
 import GameStatus from "./GameStatus"; 
 import { connect } from "react-redux";
 import moveAction from "../Redux/Actions/moveAction";
 import turnAction from "../Redux/Actions/turnAction";  
+import switchSnapshotAction from "../Redux/Actions/switchSnapshotAction";
 import { whoWin} from "../Helpers/helpers"; 
 import styled from "styled-components";
 
@@ -17,49 +17,48 @@ const Wrapper = styled.div`
   justify-content:space-between;
 `;
 
-const Dashboard = ({ cells, turn, makeMove, playerTurn}) => {
-
+const Dashboard = ({ history, turn, makeMove, playerTurn, snapshot, switchSnap}) => {
+  
 const moveHandler = i => {
-	if (whoWin(cells) || cells[i]) return;
-	cells[i] = turn ? "X" : "O";
-	makeMove(cells);
+  const historyData = history.slice(0, snapshot+1);
+  const current = historyData[historyData.length -1];
+  const squares = [...current.squares]; 
+  if (whoWin(squares) || squares[i]) return; 
+  squares[i] = turn ? "X" : "O";    
+  makeMove(historyData.concat([{squares: squares}]));
+  switchSnap(historyData.length);
 	playerTurn(!turn);
 };
 
-const winner = whoWin(cells);  
+const switchSnapshot = (pos) => {
+  switchSnap(pos);
+  const oddEven = pos % 2 === 0;
+  playerTurn(oddEven);
+}
+
+const historyData = history;
+const current = historyData[snapshot]; 
+const winner = whoWin(current.squares);  
 const printWinner = winner  ? `Win player ${winner}` : `Next turn ${turn ? "X" : "O"}`; 
-const drawCell = i => <Cell value={cells[i]} click={() => moveHandler(i)} />; 
-
-	
-
+  
   return (
     <Wrapper> 
-      <Controls winner={printWinner}/> 
-      <Area>
-        {drawCell(0)}
-        {drawCell(1)}
-        {drawCell(2)} 
-        {drawCell(3)}
-        {drawCell(4)}
-        {drawCell(5)} 
-        {drawCell(6)}
-        {drawCell(7)}
-        {drawCell(8)}
-      </Area>
+      <Controls winner={printWinner} length={historyData.length-1} snapshot={snapshot} switchSnap={switchSnapshot}/> 
+      <Area cells={current.squares} onClick={(i)=> moveHandler(i)} />  
       <GameStatus winner={winner}/>
     </Wrapper>
   );
 };
 
-const mstp = ({ cells, turn }) => ({
-  cells,
+const mstp = ({ history, turn, snapshot}) => ({
+  history,
   turn, 
+  snapshot,
 });
+
 const mdtp = dispatch => ({
   makeMove: x => dispatch(moveAction(x)),
-  playerTurn: x => dispatch(turnAction(x)) 
+  playerTurn: x => dispatch(turnAction(x)),
+  switchSnap: x => dispatch(switchSnapshotAction(x))
 });
-export default connect(
-  mstp,
-  mdtp
-)(Dashboard);
+export default connect(mstp, mdtp)(Dashboard);
