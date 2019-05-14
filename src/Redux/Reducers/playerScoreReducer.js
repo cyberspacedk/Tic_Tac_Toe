@@ -9,7 +9,7 @@ const local ={
 
 const initialState = Object.keys(local).length ? {...local} : {...initial}; 
 
-const playerScoreReducer = (state = initialState, { type, payload }) => {
+const playerScoreReducer = (state = initialState, {type}) => {
   switch (type) {
     case "PLAYER-1":
       return { ...state, player1: state.player1 + 1 };
