@@ -1,16 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Controls component.History actions and show current snapshot. winner 1`] = `
+exports[`Controls component.History actions and show current snapshot 1`] = `
 <styled.div>
   <button
+    name="go-back"
     onClick={[Function]}
   >
     Step Back
   </button>
-  <span>
-    Win Player-1
-  </span>
+  <span />
   <button
+    name="go-forward"
     onClick={[Function]}
   >
     Step Forward

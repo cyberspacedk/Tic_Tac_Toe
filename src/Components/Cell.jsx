@@ -15,5 +15,5 @@ const CellBox = styled.button`
   text-align: center;
 `;
 
-const Cell = ({ value, onClick }) =>  <CellBox onClick={onClick}>{value}</CellBox>; 
+const Cell = ({ value, onClick }) =>  <CellBox name="cell" onClick={onClick}>{value}</CellBox>; 
 export default Cell;

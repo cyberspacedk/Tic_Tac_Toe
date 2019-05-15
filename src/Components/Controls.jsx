@@ -30,9 +30,9 @@ const canBack = Boolean(snapshot);
 
   return (
     <ControlsWrapper>
-			<button onClick={()=> canBack && switchSnap(snapshot-1)}>Step Back</button>
+			<button name="go-back" onClick={()=> canBack && switchSnap(snapshot-1)}>Step Back</button>
       <span>{winner}</span> 
-			<button onClick={()=> canForward && switchSnap(snapshot+1)}>Step Forward</button> 
+			<button name="go-forward" onClick={()=> canForward && switchSnap(snapshot+1)}>Step Forward</button> 
     </ControlsWrapper>
   );
 };
