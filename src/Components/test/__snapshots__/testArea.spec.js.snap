@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`container for cells snapshot area of cells 1`] = `
+<styled.div>
+  <Cell
+    key="0"
+    onClick={[Function]}
+    value=""
+  />
+  <Cell
+    key="1"
+    onClick={[Function]}
+    value=""
+  />
+  <Cell
+    key="2"
+    onClick={[Function]}
+    value=""
+  />
+  <Cell
+    key="3"
+    onClick={[Function]}
+    value=""
+  />
+  <Cell
+    key="4"
+    onClick={[Function]}
+    value=""
+  />
+  <Cell
+    key="5"
+    onClick={[Function]}
+    value=""
+  />
+  <Cell
+    key="6"
+    onClick={[Function]}
+    value=""
+  />
+  <Cell
+    key="7"
+    onClick={[Function]}
+    value=""
+  />
+  <Cell
+    key="8"
+    onClick={[Function]}
+    value=""
+  />
+</styled.div>
+`;

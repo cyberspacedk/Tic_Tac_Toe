@@ -14,7 +14,7 @@ const AreaWrapper = styled.div`
 const Area = ({ cells, onClick }) => (
   <AreaWrapper> 
     {cells.map((cell, idx) => (
-      <Cell value={cell} onClick={() => onClick(idx)} key={Date.now() + idx} />
+      <Cell value={cell} onClick={() => onClick(idx)} key= {idx} />
     ))}
   </AreaWrapper>
 );
