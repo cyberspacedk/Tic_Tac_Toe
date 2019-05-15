@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dashboard of game dashboard snapshot 1`] = `
+<ContextProvider
+  value={null}
+>
+  <Dashboard
+    history={
+      Array [
+        Object {
+          "squares": Array [
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+          ],
+        },
+      ]
+    }
+    makeMove={[Function]}
+    playerTurn={[Function]}
+    snapshot={1}
+    store={
+      Object {
+        "clearActions": [Function],
+        "dispatch": [Function],
+        "getActions": [Function],
+        "getState": [Function],
+        "replaceReducer": [Function],
+        "subscribe": [Function],
+      }
+    }
+    switchSnap={[Function]}
+    turn={true}
+  />
+</ContextProvider>
+`;
