@@ -17,7 +17,7 @@ const Wrapper = styled.div`
   justify-content:space-between;
 `;
 
-const Dashboard = ({ history, turn, makeMove, playerTurn, snapshot, switchSnap}) => {
+export const Dashboard = ({ history, turn, makeMove, playerTurn, snapshot, switchSnap}) => {
   
 const moveHandler = i => {
   const historyData = history.slice(0, snapshot+1);

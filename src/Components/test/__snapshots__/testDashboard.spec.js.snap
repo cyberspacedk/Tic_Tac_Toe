@@ -24,7 +24,7 @@ exports[`Dashboard of game dashboard snapshot 1`] = `
     }
     makeMove={[Function]}
     playerTurn={[Function]}
-    snapshot={1}
+    snapshot={2}
     store={
       Object {
         "clearActions": [Function],

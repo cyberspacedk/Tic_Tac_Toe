@@ -27,7 +27,7 @@ const GameStatusWrapper = styled.div`
 
 
 
-const GameStatus = ({ winner, playedGame, playerScore, storePassedGame, playerOne, playerTwo}) => {
+export const GameStatus = ({ winner, playedGame, playerScore, storePassedGame, playerOne, playerTwo}) => {
 
 const {player1, player2} = playerScore;
 
@@ -46,9 +46,9 @@ const {player1, player2} = playerScore;
 
   return (
     <GameStatusWrapper>
-      <p>Sets played: {playedGame}</p>
-      <p>Player 1 wins : {player1}</p>
-      <p>Player 2 wins : {player2}</p>
+      <p name="sets-played">Sets played: {playedGame}</p>
+      <p name="player-1">Player 1 wins : {player1}</p>
+      <p name="player-2">Player 2 wins : {player2}</p>
     </GameStatusWrapper>
   );
 };

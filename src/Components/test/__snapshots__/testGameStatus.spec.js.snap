@@ -1,0 +1,99 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GameStatus. show game results snapshot 1`] = `
+<Provider
+  store={
+    Object {
+      "clearActions": [Function],
+      "dispatch": [Function],
+      "getActions": [Function],
+      "getState": [Function],
+      "replaceReducer": [Function],
+      "subscribe": [Function],
+    }
+  }
+>
+  <ConnectFunction>
+    <GameStatus
+      playedGame={7}
+      playerOne={[Function]}
+      playerScore={
+        Object {
+          "player1": 2,
+          "player2": 5,
+        }
+      }
+      playerTwo={[Function]}
+      storePassedGame={[Function]}
+    >
+      <styled.div>
+        <StyledComponent
+          forwardedComponent={
+            Object {
+              "$$typeof": Symbol(react.forward_ref),
+              "attrs": Array [],
+              "componentStyle": ComponentStyle {
+                "componentId": "sc-bdVaJa",
+                "isStatic": true,
+                "lastClassName": "dTilpC",
+                "rules": Array [
+                  "
+	background-color:#3c3c3c;
+	padding:10px 0 20px;
+	width:100vw;
+	text-align:center;
+	color: #fff;
+	font-size: 1.2rem;
+	box-shadow: 1px -4px 13px 0px #676767; 
+	p:nth-child(1){
+    font-size: 2rem;
+	}
+	p:nth-child(2){
+    color: green
+	}
+	p:nth-child(3){
+    color: orange
+	}
+",
+                ],
+              },
+              "displayName": "styled.div",
+              "foldedComponentIds": Array [],
+              "render": [Function],
+              "styledComponentId": "sc-bdVaJa",
+              "target": "div",
+              "toString": [Function],
+              "warnTooManyClasses": [Function],
+              "withComponent": [Function],
+            }
+          }
+          forwardedRef={null}
+        >
+          <div
+            className="sc-bdVaJa dTilpC"
+          >
+            <p
+              name="sets-played"
+            >
+              Sets played: 
+              7
+            </p>
+            <p
+              name="player-1"
+            >
+              Player 1 wins : 
+              2
+            </p>
+            <p
+              name="player-2"
+            >
+              Player 2 wins : 
+              5
+            </p>
+          </div>
+        </StyledComponent>
+      </styled.div>
+    </GameStatus>
+  </ConnectFunction>
+</Provider>
+`;
