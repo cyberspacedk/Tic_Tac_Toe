@@ -6,28 +6,28 @@ import { shallowToJson } from "enzyme-to-json";
 describe("Cell container", () => {
 	
   // 1- snapshot
-  // 2- check typeof value
-  // 3- click on cell 
+  // 2- check. value should equals prop value
+  // 3- simulate. click on cell 
 
   const mockClick = jest.fn();
+  
   const props = {
     value: "X",
     onClick: mockClick,
     name: "cell"
   };
 
-  it("snapshot cell", () => {
-    const myComponent = shallow(<Cell {...props} />);
+  const myComponent = shallow(<Cell {...props} />);
+
+  it("cell snapshot", () => {
     expect(shallowToJson(myComponent)).toMatchSnapshot();
   });
 
-  it("value should be a string", () => {
-    const myComponent = shallow(<Cell {...props} />);
+  it("Check. value should equals prop value", () => { 
     expect(myComponent.text()).toEqual("X");
   });
 
-  it("click on cell", () => {
-    const myComponent = shallow(<Cell {...props} />);
+  it("Simulate. click on cell", () => { 
     myComponent.find('[name="cell"]').simulate("click");
     expect(mockClick).toHaveBeenCalledTimes(1);
   });

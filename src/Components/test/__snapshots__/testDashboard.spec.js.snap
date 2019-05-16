@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Dashboard of game dashboard snapshot 1`] = `
+exports[`Dashboard of game Dashboard snapshot 1`] = `
 <ContextProvider
   value={null}
 >

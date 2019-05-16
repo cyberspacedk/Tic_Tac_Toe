@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`container for cells snapshot area of cells 1`] = `
+exports[`container for cells Area snapshot 1`] = `
 <styled.div>
   <Cell
     key="0"

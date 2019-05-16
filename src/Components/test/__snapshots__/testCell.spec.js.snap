@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Cell container snapshot cell 1`] = `
+exports[`Cell container cell snapshot 1`] = `
 <styled.button
   name="cell"
   onClick={[MockFunction]}

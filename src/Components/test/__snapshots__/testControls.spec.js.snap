@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Controls component.History actions and show current snapshot 1`] = `
+exports[`Controls component.History actions and show current Controls snapshot 1`] = `
 <styled.div>
   <button
     name="go-back"

@@ -1,12 +1,21 @@
 import React from "react";
 import { shallow } from "enzyme";
+import { shallowToJson } from "enzyme-to-json"; 
 import Header from "../Header";
 
 describe("Header component", () => {
-  // 1- check type of component content
 
-  it("Content should be - TIC TAC TOE", () => {
-    const headerComponent = shallow(<Header />);
-    expect(headerComponent.text()).toEqual("TIC TAC TOE");
+  // 1- check. content should be - TIC TAC TOE
+  // 2- snapshot
+
+  const myComponent = shallow(<Header />);
+
+  it("check. content should be - TIC TAC TOE", () => {
+    expect(myComponent.text()).toEqual("TIC TAC TOE");
   });
+
+  it('Header snapshot', ()=>{
+    expect(shallowToJson(myComponent)).toMatchSnapshot()
+  })
+ 
 });

@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`GameStatus. show game results snapshot 1`] = `
+exports[`GameStatus. show game results GameStatus snapshot 1`] = `
 <Provider
   store={
     Object {

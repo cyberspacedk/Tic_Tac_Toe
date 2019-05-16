@@ -6,11 +6,12 @@ import Controls from "../Controls";
 describe("Controls component.History actions and show current", () => {
     
 // 1- snapshot
-// 2- click back
-// 3- click forward
-// 4- string value
+// 2- simulate. click back
+// 3- simulate. click forward
+// 4- simulate. string value
 
   const mockClick = jest.fn(); 
+
   const props = {
     winner: "",
     length: 1,
@@ -18,24 +19,23 @@ describe("Controls component.History actions and show current", () => {
     switchSnap: mockClick
   };
 
-  it("snapshot", () => { 
-    const myComponent = shallow(<Controls {...props} />);
+  const myComponent = shallow(<Controls {...props} />);
+
+  it("Controls snapshot", () => { 
     expect(shallowToJson(myComponent)).toMatchSnapshot();
   });
 
-  it("check click back ", () => {
-    const myComponent = shallow(<Controls {...props} />);
+  it("Simulate. check click back ", () => { 
     myComponent.find('[name="go-back"]').simulate('click');
     expect(mockClick).toHaveBeenCalledTimes(1);
   });
 
-  it("check click forward", () => { 
-    const myComponent = shallow(<Controls {...props} />);
+  it("Simulate. check click forward", () => {  
     myComponent.find('[name="go-forward"]').simulate('click');
     expect(mockClick).toHaveBeenCalledTimes(1);
   });
  
-  it("should show current status (move or winner)", () => {
+  it("Simulate. should show current status (move or winner)", () => {
     const nextProps = {
       ...props,
       winner: "Win Player-1"
