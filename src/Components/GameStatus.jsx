@@ -1,48 +1,55 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import styled from "styled-components";
+import { getPlayedGame, getPlayerScore } from "../Redux/Selectors/selectors";
 import gamePassAction from "../Redux/Actions/gamePassAction";
-import {player1Action, player2Action} from "../Redux/Actions/playersScoreAction";
-import { storeResult, setLocal,addScore } from "../Helpers/helpers";
-
+import {
+  player1Action,
+  player2Action
+} from "../Redux/Actions/playersScoreAction";
+import { storeResult, setLocal, addScore } from "../Helpers/helpers";
 
 const GameStatusWrapper = styled.div`
-	background-color:#3c3c3c;
-	padding:10px 0 20px;
-	width:100vw;
-	text-align:center;
-	color: #fff;
-	font-size: 1.2rem;
-	box-shadow: 1px -4px 13px 0px #676767; 
-	p:nth-child(1){
+  background-color: #3c3c3c;
+  padding: 10px 0 20px;
+  width: 100vw;
+  text-align: center;
+  color: #fff;
+  font-size: 1.2rem;
+  box-shadow: 1px -4px 13px 0px #676767;
+  p:nth-child(1) {
     font-size: 2rem;
-	}
-	p:nth-child(2){
-    color: green
-	}
-	p:nth-child(3){
-    color: orange
-	}
+  }
+  p:nth-child(2) {
+    color: green;
+  }
+  p:nth-child(3) {
+    color: orange;
+  }
 `;
 
-
-
-export const GameStatus = ({ winner, playedGame, playerScore, storePassedGame, playerOne, playerTwo}) => {
-
-const {player1, player2} = playerScore;
+export const GameStatus = ({
+  winner,
+  playedGame,
+  playerScore,
+  storePassedGame,
+  playerOne,
+  playerTwo
+}) => {
+  const { player1, player2 } = playerScore;
 
   useEffect(() => {
     winner !== null && storeResult(playedGame, storePassedGame);
-    addScore(winner,playerOne,playerTwo);  
-  },[winner]);
+    addScore(winner, playerOne, playerTwo);
+  }, [playedGame, playerOne, playerTwo, storePassedGame, winner]);
 
   useEffect(() => {
     setLocal("games", playedGame);
-  },[playedGame]);
+  }, [playedGame]);
 
-  useEffect(()=>{
-    setLocal("score", playerScore); 
-  },[playerScore])
+  useEffect(() => {
+    setLocal("score", playerScore);
+  }, [playerScore]);
 
   return (
     <GameStatusWrapper>
@@ -53,15 +60,15 @@ const {player1, player2} = playerScore;
   );
 };
 
-const mstp = ({ playedGame , playerScore}) => ({
-  playedGame, 
-  playerScore
+const mstp = state => ({
+  playedGame: getPlayedGame(state),
+  playerScore: getPlayerScore(state)
 });
 
 const mdtp = dispatch => ({
   storePassedGame: x => dispatch(gamePassAction(x)),
-  playerOne: ()=> dispatch(player1Action()),
-  playerTwo: ()=> dispatch(player2Action())
+  playerOne: () => dispatch(player1Action()),
+  playerTwo: () => dispatch(player2Action())
 });
 
 export default connect(
